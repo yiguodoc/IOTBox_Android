@@ -1,0 +1,19 @@
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+    <include
+        android:id="@+id/widget_navbar_ref"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        layout="@layout/widget_navbar" />
+    
+	<ListView 
+	    android:id="@android:id/list" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="fill_parent"
+    	android:layout_below="@+id/widget_navbar_ref"
+	    android:cacheColorHint="#FFFFFF"/>
+
+</RelativeLayout>

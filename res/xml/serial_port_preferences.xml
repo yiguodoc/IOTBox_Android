@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="Serial port setup">
+	<ListPreference android:key="DEVICE"
+	    android:title="通信串口"
+		android:persistent="true"/> 
+	
+	<EditTextPreference android:key="SERVER_IP"
+	    android:title="服务器IP"
+	    android:dialogTitle="请输入服务器IP"
+		android:persistent="true"/>  
+	
+	<EditTextPreference android:key="SERVER_PORT"
+	    android:title="服务器端口"
+	    android:dialogTitle="请输入端口号"
+		android:persistent="true"/> 
+	
+	<CheckBoxPreference android:key="ENABLE_UPLOAD"
+	    android:title="上传数据"
+	    android:summary="允许数据上传到服务端"
+		android:persistent="true"/> 
+	
+</PreferenceScreen>

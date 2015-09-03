@@ -1,0 +1,72 @@
+
+    <resources>
+        <string-array name="ctype">
+            <item >0</item>
+            <item >1</item>
+            <item >2</item>
+            <item >3</item>
+            <item >4</item>
+            <item >5</item>
+            <item >6</item>
+            <item >7</item>
+            <item >8</item>
+            <item >9</item>
+            <item >10</item>
+            <item >11</item>
+            <item >12</item>
+            <item >13</item>
+            <item >14</item>
+            <item >15</item>
+            <item >16</item>
+            
+        </string-array>
+        <string-array name="power">
+            <item >10</item>
+            <item >11</item>
+            <item >12</item>
+            <item >13</item>
+            <item >14</item>
+            <item >15</item>
+            <item >16</item>
+            <item >17</item>
+            <item >18</item>
+            <item >19</item>
+            <item >20</item>
+            <item >21</item>
+            <item >22</item>
+            <item >23</item>
+            <item >24</item>
+            <item >25</item>
+            <item >26</item>
+            <item >27</item>
+            <item >28</item>
+            <item >29</item>
+            <item >30</item>
+        </string-array>
+        <string-array name="freq">            
+            <item >中国标准920-925MHz</item>
+            <item >中国标准840-845MHz</item>
+            <item >ETSI标准</item>
+            <item >定频模式915MHz</item>
+            <item >用户自定义</item>
+        </string-array>
+        <string-array name="save" >
+            <item >00:Reserved</item>
+            <item >01:UII</item>
+            <item >10:TID</item>
+            <item >11:User</item>
+        </string-array>
+        <string-array name="sim" >
+            <item >测试SIM卡是否存在</item>
+            <item >查询制造商名称</item>
+            <item >查询设备型号</item>
+            <item >拨打电话</item>
+            <item >挂断电话</item>
+            <item >接通电话</item>
+        </string-array>
+        <string-array name="hrfprotocal">  
+	        <item>1443A协议</item>  
+	        <item>1443B协议</item>  
+	        <item>15693协议</item>   
+	    </string-array>  
+    </resources>

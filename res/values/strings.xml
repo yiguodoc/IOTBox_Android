@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">物联网实验箱</string>
+    <string name="about_msg">北京***公司物联网中心 \n \n version1.0 \n</string>
+    <string name="error_configuration">请先配置串行端口</string>
+    <string name="error_security">没有串口的读/写权限</string>
+    <string name="error_unknown">串口无法打开</string>
+    <string name="setup">设置</string>
+    <string name="console">结果输出</string>
+    <string name="loopback">Loopback</string>
+    <string name="send">Send 01010101</string>
+    <string name="about">关于</string>
+    <string name="quit">退出</string>  
+    
+    <!-- 按钮 -->
+    <string name="barcode">条码</string>
+    <string name="lrf">低频RF</string>
+    <string name="hrf">高频RF</string>
+    <string name="urf">超高频RF</string>
+    <string name="gps">GPS定位</string>
+    <string name="gsm">GSM技术</string>
+    <string name="zigbee">传感器</string>
+    <string name="settings">设置</string>
+    
+</resources>

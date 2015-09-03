@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_height="100dp" 
+ android:layout_width="450dp"
+ android:background="#ffffff" 
+ android:orientation="horizontal"
+ android:id="@+id/teldialog">
+ 
+ 	
+ 	<EditText 
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginTop="10dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:gravity="left"
+		android:id="@+id/phoneNo"
+		android:inputType="phone"
+		android:minWidth="400dip"/>
+
+</LinearLayout>

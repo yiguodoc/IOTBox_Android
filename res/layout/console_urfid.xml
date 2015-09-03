@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#d2d2d2"
+    android:keepScreenOn="true"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/widget_navbar_ref"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        layout="@layout/widget_navbar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal" >
+
+		<LinearLayout
+		        android:layout_width="wrap_content"
+		        android:layout_marginLeft="20dp"
+		        android:layout_marginRight="20dp"
+		        android:layout_height="match_parent"
+		        android:orientation="vertical"
+		        android:layout_weight="1">
+		       <EditText
+		           android:id="@+id/EditTextReception"
+		           android:layout_width="fill_parent"
+		           android:layout_height="0dp"  
+		           android:gravity="top"
+		           android:hint="原始输出结果"
+		           android:layout_weight="1" 
+		           android:isScrollContainer="true"
+		           android:scrollbarStyle="insideOverlay"
+		           style="@style/readOnly_editText"/>
+		       
+		       <EditText
+		           android:id="@+id/EditTextResolve"
+		           android:layout_width="fill_parent"
+		           android:layout_height="0dp"
+		           android:layout_weight="2" 
+		           android:layout_marginTop="30dp"  
+		           android:gravity="top"
+		           android:hint="解析结果"
+		           android:isScrollContainer="true"
+		           android:scrollbarStyle="insideOverlay"
+		           style="@style/readOnly_editText"/>
+		</LinearLayout>
+	    <LinearLayout
+	        android:layout_width="200dp"
+	        android:layout_height="match_parent"
+	        android:layout_marginLeft="20dp"
+	        android:layout_marginRight="40dp"
+	        android:orientation="vertical">
+	        <Button
+	            android:id="@+id/btnScan"
+	            style="?android:attr/buttonBarButtonStyle"
+	            android:layout_width="200dp"
+	            android:layout_height="60dp"
+	            android:background="@drawable/btn_style_green"
+	            android:onClick="sendClick"
+	            android:text="开始读取"
+	            android:textColor="#2a2a2a"
+	            android:textSize="28sp" />
+
+	        <ProgressBar
+	            android:id="@+id/progressBarScan"
+	            style="?android:attr/progressBarStyleLarge"
+	            android:layout_width="80dp"
+	            android:layout_height="80dp"
+	            android:layout_marginTop="40dp"
+	            android:layout_gravity="center_vertical|center_horizontal"
+	            android:visibility="gone"/>     
+	
+	        <Button
+	            style="?android:attr/buttonBarButtonStyle"
+	            android:layout_width="200dp"
+	            android:layout_height="60dp"
+	            android:layout_marginTop="40dp"
+	            android:background="@drawable/btn_style_green"
+	            android:onClick="clearRawClick"
+	            android:text="清空原始输出"
+	            android:textColor="#2a2a2a"
+	            android:textSize="28sp" />
+	        
+	        <Button
+	            style="?android:attr/buttonBarButtonStyle"
+	            android:layout_width="200dp"
+	            android:layout_height="60dp"
+	            android:layout_marginTop="40dp"
+	            android:background="@drawable/btn_style_green" 
+	            android:onClick="clearResolveClick"
+	            android:text="清空解析结果"
+	            android:textColor="#2a2a2a"
+	            android:textSize="28sp" /> 
+	    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#d2d2d2"
+    android:keepScreenOn="true"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/widget_navbar_ref"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        layout="@layout/widget_navbar" /> 
+         
+	<LinearLayout
+	    android:id="@+id/layer_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+		<EditText
+			android:id="@+id/EditTextReception"
+			android:layout_width="fill_parent"
+			android:layout_height="150dp"  
+			android:gravity="top"
+			android:hint="原始输出结果"
+			android:isScrollContainer="true"
+			android:scrollbarStyle="insideOverlay"
+			style="@style/readOnly_editText"/>
+		<EditText
+			android:id="@+id/EditTextResolve"
+			android:layout_width="fill_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:layout_marginTop="20dp"
+			android:gravity="top"
+			android:hint="解析结果"
+			android:isScrollContainer="true"
+			android:scrollbarStyle="insideOverlay"
+			style="@style/readOnly_editText"/> 
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="50dp"
+			android:layout_marginTop="10dp"
+			android:layout_gravity="center"
+			android:orientation="horizontal">	
+			<Button
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp"
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="clearRawClick"
+			    android:text="清空原始数据"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />    
+			<Button
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp" 
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="clearResolveClick"
+			    android:text="清空解析结果"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />  	
+			<Button
+			    android:id="@+id/viewChangeClick"
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp" 
+			    android:layout_marginLeft = "150dp"
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="viewChangeClick"
+			    android:text="查看趋势图"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />  	        
+		</LinearLayout>
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:id="@+id/layer_chat"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        android:orientation="vertical"> 
+	    <com.github.mikephil.charting.charts.LineChart
+	        android:id="@+id/chart1"
+	        android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1" /> 
+	    <LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="50dp"
+			android:layout_marginTop="10dp"
+			android:layout_gravity="center"
+			android:orientation="horizontal">	
+			<Button
+			    android:id="@+id/btn_temp"
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp"
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="viewTempClick"
+			    android:text="温度"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />    
+			<Button
+			    android:id="@+id/btn_humi"
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp" 
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="viewHumiClick"
+			    android:text="湿度"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />  	
+			<Button
+			    android:id="@+id/btn_lux"
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp" 
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="viewLuxClick"
+			    android:text="光照"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />  
+			<Button
+			    android:id="@+id/changeToEdit"
+			    style="?android:attr/buttonBarButtonStyle"
+			    android:layout_width="150dp"
+			    android:layout_height="50dp" 
+			    android:layout_marginLeft = "100dp"
+			    android:background="@drawable/btn_style_green"
+			    android:onClick="viewChangeClick"
+			    android:text="查看原数据"
+			    android:textColor="#2a2a2a"
+			    android:textSize="22sp" />  	        
+		</LinearLayout>
+    </LinearLayout>  
+</LinearLayout>
