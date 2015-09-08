@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:background="#106184" >
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textColor="#ffffff"
+            android:textSize="28sp" />
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/textView1"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_launcher"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+	
+	<TableLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/top_layout"
+	    android:stretchColumns="*" 
+		android:layout_marginLeft="40dp" 
+		android:layout_marginRight="40dp" > 
+	
+	    <TableRow
+	        android:id="@+id/tableRow1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:padding="10dp">
+	
+			<!--  条码 -->  
+	        <Button 
+				android:id="@+id/btn_barcode"
+				android:text="@string/barcode"
+				android:drawableTop="@drawable/home_btn_barcode"
+                style="@style/main_button_menu"
+				android:onClick="barcodeClick"/>
+	        			
+			<!--  低频RF -->  
+	        <Button 
+				android:id="@+id/btn_lrf"
+				android:text="@string/lrf"
+				android:drawableTop="@drawable/home_btn_lrf"
+                style="@style/main_button_menu"
+				android:onClick="lrfClick"/>
+	
+			<!--  高频RF -->  
+	        <Button 
+				android:id="@+id/btn_hrf"
+				android:text="@string/hrf"
+				android:drawableTop="@drawable/home_btn_hrf"
+                style="@style/main_button_menu"
+				android:onClick="hrfClick"/>
+	        
+			<!--  超高频RF -->  
+	        <Button 
+				android:id="@+id/btn_urf"
+				android:text="@string/urf"
+				android:drawableTop="@drawable/home_btn_urf"
+                style="@style/main_button_menu"
+				android:onClick="urfClick"/> 
+	    </TableRow> 
+	
+	    <TableRow
+	        android:id="@+id/tableRow2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1" 
+	        android:padding="10dp">
+	        			
+			<!--  GPS -->  
+	        <Button 
+				android:id="@+id/btn_gps"
+				android:text="@string/gps"
+				android:drawableTop="@drawable/home_btn_gps"
+                style="@style/main_button_menu"
+				android:onClick="gpsClick"/>
+	        	
+			<!--  GSM -->  
+	        <Button 
+				android:id="@+id/btn_gsm"
+				android:text="@string/gsm"
+				android:drawableTop="@drawable/home_btn_gsm" 
+                style="@style/main_button_menu"
+				android:onClick="gsmClick"/>
+ 
+			<!--  传感器 -->  
+	        <Button 
+				android:id="@+id/btn_zigbee"
+				android:text="@string/zigbee"
+				android:drawableTop="@drawable/home_btn_zigbee" 
+                style="@style/main_button_menu"
+				android:onClick="zigbeeClick"/>
+	        
+			<!--  设置 -->  
+	        <Button 
+				android:id="@+id/btn_settings"
+				android:text="@string/settings"
+				android:drawableTop="@drawable/home_btn_settings" 
+                style="@style/main_button_menu"
+				android:onClick="settingsClick"/>
+	    </TableRow> 
+	
+	    <TableRow
+	        android:id="@+id/tableRow3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_weight="1" 
+	        android:padding="10dp">
+	
+			<!--  关于 -->  
+	        <Button 
+				android:id="@+id/btn_about"
+				android:text="@string/about"
+				android:drawableTop="@drawable/home_btn_info" 
+                style="@style/main_button_menu"
+				android:onClick="aboutClick"/>
+	        			
+			<!--  quit -->  
+	        <Button 
+				android:id="@+id/btn_quit"
+				android:text="@string/quit"
+				android:drawableTop="@drawable/home_btn_quit" 
+                style="@style/main_button_menu"
+				android:onClick="quitClick"/> 
+	    </TableRow>
+	
+	</TableLayout>
+</RelativeLayout>
