@@ -125,8 +125,9 @@ public class BarCodeActivity extends SerialPortActivity {
 		runOnUiThread(new Runnable() {
 			public void run() { 
 				rawReceiveData = rawReceiveData + new String(buffer, 0, size);
-				if(rawReceiveData.contains("\r\n") && mReception != null) { 
-					String code = rawReceiveData.replace("\r\n", "");
+				if(mReception != null) { 
+					String code = rawReceiveData.replace(" ", "");
+					code = CHexConver.hexStr2Str(code);
 					if(Util.isNumeric(code)) { 
 						mCreateBarView.setImageBitmap(BarcodeUtil.creatBarcode(getApplicationContext(),
 								code, 0, 0, true));
