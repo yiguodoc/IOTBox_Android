@@ -55,7 +55,8 @@
 		            android:onClick="sendClick"
 		            android:text="开启扫描"
 		            android:textColor="#2a2a2a"
-		            android:textSize="28sp" />
+		            android:textSize="28sp" 
+		            android:visibility="gone"/>
 	
 		        <ProgressBar
 		            android:id="@+id/progressBarScan"
@@ -70,7 +71,6 @@
 		            style="?android:attr/buttonBarButtonStyle"
 		            android:layout_width="200dp"
 		            android:layout_height="60dp"
-		            android:layout_marginTop="30dp"
 		            android:background="@drawable/btn_style_green"
 		            android:onClick="clearClick"
 		            android:text="清空结果"
