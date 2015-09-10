@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. 
  */
-import java.io.BufferedReader;
 package com.iotbox;
  
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream; 
 import java.io.OutputStream;
