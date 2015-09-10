@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. 
  */
-
+import java.io.BufferedReader;
 package com.iotbox;
  
 import java.io.IOException;
@@ -48,7 +48,6 @@ public abstract class SerialPortActivity extends Activity {
 			while (!isInterrupted()) {
 				int size;
 				try {
-					/* 临时修改串口读取代码
 					byte[] buffer = new byte[64];
 					if (mInputStream == null)
 						return;
@@ -58,15 +57,16 @@ public abstract class SerialPortActivity extends Activity {
                        
 					size = mInputStream.read(buffer);
 					if (size > 0) {
-						onDataReceived(buffer, size);
+					    onDataReceived(buffer, size);
 					}
-					*/  
 					
+					/* 临时修改串口读取代码，如果想用流，就放开这里，注释上面
 					BufferedReader dr = new BufferedReader(new InputStreamReader(mInputStream));
 					String line = null;
 					while((line = dr.readLine())!= null) {
 						onDataReceived(line);
 					}
+					*/  
 				} 
 				catch (Exception e) {
 					Toast.makeText(getApplicationContext(),"err"+e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
