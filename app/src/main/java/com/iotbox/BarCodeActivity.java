@@ -29,7 +29,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
  
-public class BarCodeActivity extends GpsSerialPortActivity {
+public class BarCodeActivity extends SerialPortActivity {
 
 	EditText mReception; 
 	ProgressBar progressBarScan;
