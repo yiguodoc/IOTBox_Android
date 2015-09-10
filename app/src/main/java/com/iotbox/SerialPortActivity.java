@@ -48,15 +48,24 @@ public abstract class SerialPortActivity extends Activity {
 			while (!isInterrupted()) {
 				int size;
 				try {
+					/* 临时修改串口读取代码
 					byte[] buffer = new byte[64];
 					if (mInputStream == null)
 						return;
-					/** 
-                     * 这里的read要尤其注意，它会一直等待数据。如果要判断是否接受完成，只有设置结束标识，或作其他特殊的处理。 
-                     */  
+				
+                     			// 这里的read要尤其注意，它会一直等待数据。如果要判断是否接受完成
+                     			// 只有设置结束标识，或作其他特殊的处理。 
+                       
 					size = mInputStream.read(buffer);
 					if (size > 0) {
 						onDataReceived(buffer, size);
+					}
+					*/  
+					
+					BufferedReader dr = new BufferedReader(new InputStreamReader(mInputStream));
+					String line = null;
+					while((line = dr.readLine())!= null) {
+						onDataReceived(line);
 					}
 				} 
 				catch (Exception e) {
