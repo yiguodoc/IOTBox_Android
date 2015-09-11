@@ -124,15 +124,17 @@ public class BarCodeActivity extends SerialPortActivity {
 	protected void onDataReceived(final byte[] buffer, final int size) {
 		runOnUiThread(new Runnable() {
 			public void run() { 
-				rawReceiveData = rawReceiveData + new String(buffer, 0, size);
-				if(mReception != null) { 
+				rawReceiveData = new String(buffer, 0, size);
+				if(mReception != null) {
+                    /*
 					String code = rawReceiveData.replace(" ", "");
 					code = CHexConver.hexStr2Str(code);
-					if(Util.isNumeric(code)) { 
+					if(Util.isNumeric(code)) {
 						mCreateBarView.setImageBitmap(BarcodeUtil.creatBarcode(getApplicationContext(),
 								code, 0, 0, true));
 					}
-					
+					*/
+
 					mReception.append(Util.getNowTime());
 					mReception.append("             ");
 					mReception.append(rawReceiveData);

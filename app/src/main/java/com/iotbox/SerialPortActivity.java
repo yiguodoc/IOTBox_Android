@@ -51,10 +51,7 @@ public abstract class SerialPortActivity extends Activity {
 					byte[] buffer = new byte[64];
 					if (mInputStream == null)
 						return;
-				
-                     			// 这里的read要尤其注意，它会一直等待数据。如果要判断是否接受完成
-                     			// 只有设置结束标识，或作其他特殊的处理。 
-                       
+
 					size = mInputStream.read(buffer);
 					if (size > 0) {
 					    onDataReceived(buffer, size);
