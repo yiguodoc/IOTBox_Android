@@ -36,10 +36,11 @@ public abstract class GpsSerialPortActivity extends Activity {
 
 	protected Application mApplication;
 	protected SerialPort mSerialPort;
+    protected SerialPortType serialPortType;
 	protected OutputStream mOutputStream;
+    
 	private InputStream mInputStream;
 	private ReadThread mReadThread;
-	
 
 	private class ReadThread extends Thread {
 

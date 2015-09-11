@@ -29,7 +29,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
  
-public class BarCodeActivity extends SerialPortActivity {
+public class BarCodeActivity extends GpsSerialPortActivity {
 
 	EditText mReception; 
 	ProgressBar progressBarScan;
@@ -40,6 +40,7 @@ public class BarCodeActivity extends SerialPortActivity {
 	byte[] instruction;
 	boolean isScanRunning = false;
 	String rawReceiveData = "";
+    boolean addDateString = true;
 	
     private int TIME = 1000;   //每隔1s执行 
 	
@@ -47,7 +48,7 @@ public class BarCodeActivity extends SerialPortActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//打开串口
-		openPort(SerialPortType.port_barcode);
+		openPort();
 		setContentView(R.layout.console_barcode);
 		mReception = (EditText)findViewById(R.id.EditTextReception);
 		progressBarScan = (ProgressBar)findViewById(R.id.progressBarScan); 
@@ -119,23 +120,46 @@ public class BarCodeActivity extends SerialPortActivity {
 	public void clearClick(View v) {
 		mReception.setText("");
 	}
-	 
-  	@Override
+
+    @Override
+    protected void onDataReceived(final String s)
+    {
+        //Runnable匿名函数类
+        runOnUiThread(new Runnable() {
+            public void run()
+            {
+                if (mReception != null) {
+                    mReception.append(Util.getNowTime());
+                    mReception.append("             ");
+                    mReception.append(s+"\n");
+                }
+            }
+        });
+    }
+
+    /*
 	protected void onDataReceived(final byte[] buffer, final int size) {
 		runOnUiThread(new Runnable() {
 			public void run() {
                 rawReceiveData = rawReceiveData + new String(buffer, 0, size);
-                if(rawReceiveData.contains("0D") && mReception != null) {
-                    String code = rawReceiveData.replace("0x0D", "");
 
+                if (addDateString) {
                     mReception.append(Util.getNowTime());
                     mReception.append("             ");
-                    mReception.append(rawReceiveData);
+                    addDateString = false;
+                }
 
+                // 如果遇到结尾标示“0x0D"
+                if(rawReceiveData.endsWith("13") && mReception != null) {
+                    rawReceiveData = rawReceiveData.replace("13", "");
                     mReception.append("\r\n");
                     rawReceiveData = "";
+                    addDateString = true;
                 }
+
+                mReception.append(rawReceiveData);
             }
 		});
-	}
+
+	}*/
 }
