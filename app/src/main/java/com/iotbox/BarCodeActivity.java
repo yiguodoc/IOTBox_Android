@@ -21,6 +21,7 @@ import java.io.IOException;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView; 
@@ -28,8 +29,10 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
- 
-public class BarCodeActivity extends GpsSerialPortActivity {
+
+import static android.util.Log.*;
+
+public class BarCodeActivity extends SerialPortActivity {
 
 	EditText mReception; 
 	ProgressBar progressBarScan;
@@ -40,15 +43,14 @@ public class BarCodeActivity extends GpsSerialPortActivity {
 	byte[] instruction;
 	boolean isScanRunning = false;
 	String rawReceiveData = "";
-    boolean addDateString = true;
 	
-    private int TIME = 1000;   //每隔1s执行 
+    	private int TIME = 1000;   //每隔1s执行 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//打开串口
-		openPort();
+		openPort(SerialPortType.port_barcode);
 		setContentView(R.layout.console_barcode);
 		mReception = (EditText)findViewById(R.id.EditTextReception);
 		progressBarScan = (ProgressBar)findViewById(R.id.progressBarScan); 
@@ -120,46 +122,23 @@ public class BarCodeActivity extends GpsSerialPortActivity {
 	public void clearClick(View v) {
 		mReception.setText("");
 	}
-
-    @Override
-    protected void onDataReceived(final String s)
-    {
-        //Runnable匿名函数类
-        runOnUiThread(new Runnable() {
-            public void run()
-            {
-                if (mReception != null) {
-                    mReception.append(Util.getNowTime());
-                    mReception.append("             ");
-                    mReception.append(s+"\n");
-                }
-            }
-        });
-    }
-
-    /*
+	 
+  	@Override
 	protected void onDataReceived(final byte[] buffer, final int size) {
 		runOnUiThread(new Runnable() {
-			public void run() {
-                rawReceiveData = rawReceiveData + new String(buffer, 0, size);
+			public void run() { 
+				rawReceiveData = rawReceiveData + new String(buffer, 0, size);
 
-                if (addDateString) {
-                    mReception.append(Util.getNowTime());
-                    mReception.append("             ");
-                    addDateString = false;
-                }
-
-                // 如果遇到结尾标示“0x0D"
-                if(rawReceiveData.endsWith("13") && mReception != null) {
-                    rawReceiveData = rawReceiveData.replace("13", "");
-                    mReception.append("\r\n");
-                    rawReceiveData = "";
-                    addDateString = true;
-                }
-
-                mReception.append(rawReceiveData);
-            }
+				Log.i("TAG",rawReceiveData);
+				Log.i("TAG","----------------------");
+				if(buffer[size-1] == 13 && mReception != null) {
+					
+					mReception.append(Util.getNowTime());
+					mReception.append("             ");
+					mReception.append(rawReceiveData+"\r\n");
+					rawReceiveData = "";
+				}  
+			}
 		});
-
-	}*/
+	}
 }
